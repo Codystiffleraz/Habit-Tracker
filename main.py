@@ -1,6 +1,6 @@
 import requests
 from api_key import TOKEN
-from datetime import date
+from datetime import datetime
 USERNAME = "codystiffleraz"
 
 
@@ -31,13 +31,14 @@ headers = {
     "X-USER-TOKEN": TOKEN
 }
 
+today = datetime.now()
 
 
 post_graph_endpoint = f"{graph_endpoint}/{graph_config['id']}"
 print(post_graph_endpoint)
 
 post_graph_params = {
-    "date": "20231117",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "1"
 }
 
