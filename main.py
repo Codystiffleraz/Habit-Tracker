@@ -1,5 +1,6 @@
 import requests
 from api_key import TOKEN
+from datetime import date
 USERNAME = "codystiffleraz"
 
 
@@ -30,6 +31,16 @@ headers = {
     "X-USER-TOKEN": TOKEN
 }
 
-response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
-print(response.text)
-# requests.post()
+
+
+post_graph_endpoint = f"{graph_endpoint}/{graph_config['id']}"
+print(post_graph_endpoint)
+
+post_graph_params = {
+    "date": "20231117",
+    "quantity": "1"
+}
+
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# response = requests.post(url=post_graph_endpoint, json=post_graph_params,headers=headers)
+requests.post(url=post_graph_endpoint, json=post_graph_params,headers=headers)
