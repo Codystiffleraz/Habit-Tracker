@@ -42,6 +42,19 @@ post_graph_params = {
     "quantity": "1"
 }
 
-# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+
 # response = requests.post(url=post_graph_endpoint, json=post_graph_params,headers=headers)
 requests.post(url=post_graph_endpoint, json=post_graph_params,headers=headers)
+
+
+update_endpoint = f"{pixela_endpoint}/{USERNAME}/{graph_config['id']}/{today.strftime('%Y%m%d')}"
+
+new_pixel_data = {
+    "quantity": 2.5
+}
+
+# requests.put(url=update_endpoint, json=new_pixel_data, headers=headers)
+
+delete_endpoint = f"{pixela_endpoint}/{USERNAME}/{graph_config['id']}/{today.strftime('%Y%m%d')}"
+
+requests.delete(url=delete_endpoint, headers=headers)
