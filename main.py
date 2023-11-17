@@ -18,8 +18,18 @@ user_params = {
 
 graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
-graph_params = {
-    
+graph_config = {
+    "id": "graph",
+    "name": "Coding Graph",
+    "unit": "hours",
+    "type": "float",
+    "color": "ajisai"
 }
 
-requests.post()
+headers = {
+    "X-USER-TOKEN": TOKEN
+}
+
+response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+print(response.text)
+# requests.post()
